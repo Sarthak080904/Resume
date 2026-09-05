@@ -182,6 +182,29 @@ h2 em{font-style:italic;color:var(--coral);font-weight:700}
 .peek.on{opacity:1}
 .peek img{width:100%;height:100%;object-fit:cover;object-position:top left}
 
+/* ---------- about ---------- */
+.about{display:grid;grid-template-columns:minmax(0,.62fr) minmax(0,1fr);gap:clamp(28px,5vw,76px);align-items:start;border-top:1px solid var(--ink);padding-top:clamp(30px,4vw,48px)}
+.portrait{position:relative;border-radius:20px;overflow:hidden;border:1px solid var(--line);background:var(--bg-card);aspect-ratio:4/5;max-width:420px}
+.portrait img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;z-index:1}
+/* shows through when assets/portrait.jpg is absent — the img removes itself */
+.portrait-fb{position:absolute;inset:0;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:14px;
+  background:repeating-linear-gradient(-45deg,transparent 0 9px,rgba(110,107,118,.07) 9px 10px)}
+.portrait-fb .ini{font-size:clamp(56px,7vw,86px);font-weight:800;letter-spacing:-.05em;color:var(--coral);line-height:1}
+.portrait-fb .cap{font-family:var(--mono);font-size:10.5px;letter-spacing:.14em;text-transform:uppercase;color:var(--ink-faint)}
+.portrait-fb .bar{width:34px;height:1px;background:var(--line)}
+.about-body p{font-size:clamp(15.5px,1.3vw,17.5px);line-height:1.75;color:var(--ink-soft);max-width:60ch}
+.about-body p+p{margin-top:18px}
+.about-body b{color:var(--ink);font-weight:600}
+.facts{list-style:none;margin-top:clamp(30px,3.4vw,42px);border-top:1px solid var(--line)}
+.facts li{display:flex;justify-content:space-between;align-items:baseline;gap:20px;padding:13px 0;border-bottom:1px solid var(--line);
+  font-family:var(--mono);font-size:11px;letter-spacing:.1em;text-transform:uppercase;color:var(--ink-faint)}
+.facts li b{color:var(--ink);font-weight:500;text-align:right}
+.facts li b em{font-style:normal;color:var(--coral-deep)}
+@media (max-width:860px){
+  .about{grid-template-columns:1fr;gap:26px}
+  .portrait{max-width:260px;aspect-ratio:1/1}
+}
+
 /* ---------- stack ---------- */
 .stack{display:grid;grid-template-columns:repeat(4,1fr);border-top:1px solid var(--ink)}
 .col{padding:26px clamp(14px,2vw,26px) 8px}
@@ -287,6 +310,8 @@ footer .wrap{display:flex;justify-content:space-between;flex-wrap:wrap;gap:10px 
   h2{font-size:26px}
   .feat-media{height:auto;aspect-ratio:16/9.4;break-inside:avoid}
   .r-shot{display:none}
+  .about{break-inside:avoid}
+  .portrait{max-width:180px}
   .contact{background:#fff;color:var(--ink);border:1px solid var(--line)}
   .contact::before{display:none}
   .contact-p,.contact-side{color:var(--ink-soft)}
@@ -322,9 +347,10 @@ footer .wrap{display:flex;justify-content:space-between;flex-wrap:wrap;gap:10px 
     <a href="#top" class="brand">Sarthak Bhujbal<i>.</i></a>
     <nav class="nav-mid">
       <a href="#work" data-n="01">Work</a>
-      <a href="#stack" data-n="02">Stack</a>
-      <a href="#experience" data-n="03">Experience</a>
-      <a href="#contact" data-n="04">Contact</a>
+      <a href="#about" data-n="02">About</a>
+      <a href="#stack" data-n="03">Stack</a>
+      <a href="#experience" data-n="04">Experience</a>
+      <a href="#contact" data-n="05">Contact</a>
     </nav>
     <div class="nav-end">
       <a class="pill line" href="https://drive.google.com/uc?export=download&amp;id=1rkDw2PIcZHgkriuUiG6Oxx6TucIbSn3t" target="_blank" rel="noopener">Résumé ↓</a>
@@ -339,9 +365,10 @@ footer .wrap{display:flex;justify-content:space-between;flex-wrap:wrap;gap:10px 
 <div class="sheet" id="sheet">
   <nav>
     <a href="#work"><span>01</span>Work</a>
-    <a href="#stack"><span>02</span>Stack</a>
-    <a href="#experience"><span>03</span>Experience</a>
-    <a href="#contact"><span>04</span>Contact</a>
+    <a href="#about"><span>02</span>About</a>
+    <a href="#stack"><span>03</span>Stack</a>
+    <a href="#experience"><span>04</span>Experience</a>
+    <a href="#contact"><span>05</span>Contact</a>
   </nav>
   <div class="sheet-foot">
     <a class="pill line" href="https://drive.google.com/uc?export=download&amp;id=1rkDw2PIcZHgkriuUiG6Oxx6TucIbSn3t" target="_blank" rel="noopener">Resume ↓</a>
@@ -430,6 +457,41 @@ footer .wrap{display:flex;justify-content:space-between;flex-wrap:wrap;gap:10px 
       <span class="mono">03 — 10</span>
     </div>
     <ul class="list" id="list"></ul>
+  </div>
+</section>
+
+<section id="about">
+  <div class="wrap">
+    <div class="sec-head">
+      <div>
+        <div class="sec-kicker rv">Who's behind it</div>
+        <h2 class="rv" data-d="1">Hello, I'm <em>Sarthak</em></h2>
+      </div>
+      <p class="sec-desc rv" data-d="2">The short version: I like problems that end with something deployed.</p>
+    </div>
+    <div class="about rv">
+      <div class="portrait">
+        <img src="assets/portrait.jpg" alt="Sarthak Bhujbal" width="800" height="1000" loading="lazy" decoding="async" onerror="this.remove()">
+        <div class="portrait-fb">
+          <span class="cap">Sarthak Bhujbal</span>
+          <span class="ini">SB</span>
+          <span class="bar"></span>
+          <span class="cap">Pune, India</span>
+        </div>
+      </div>
+      <div class="about-body">
+        <p>I'm a final-year <b>BCA student at MIT ADT University</b> in Pune. Most of what I know came from shipping — picking a problem, building the whole thing, and putting it somewhere people can actually open it.</p>
+        <p>That's the thread through this page. Ten products, nine of them live: RAG pipelines, ML services, a React Native app, production REST APIs. Built end to end and left running — not coursework dressed up as products.</p>
+        <p>Last summer I did that inside a real team at <b>Thingsup Iobot Technologies</b>, building a dynamic form system that went into the company's own infrastructure. First time my code was something other people depended on.</p>
+        <p>Now I'm looking for a full-stack or AI engineering role where I can keep building things that go live.</p>
+        <ul class="facts">
+          <li>Currently <b>Final year, BCA</b></li>
+          <li>Based in <b>Pune, Maharashtra</b></li>
+          <li>Focus <b>AI tooling <em>&amp;</em> full-stack</b></li>
+          <li>Status <b><em>Open to work</em></b></li>
+        </ul>
+      </div>
+    </div>
   </div>
 </section>
 
