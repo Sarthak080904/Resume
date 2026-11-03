@@ -165,9 +165,10 @@ h2 em{font-style:italic;color:var(--coral);font-weight:700}
 .row a:hover .r-idx{color:var(--coral)}
 .row .r-name{font-size:clamp(19px,2.2vw,30px);font-weight:700;letter-spacing:-.028em;transition:color .3s;line-height:1.2}
 .row a:hover .r-name{color:var(--coral)}
+.row .r-name,.row .r-tag,.row .r-end{min-width:0}
 .row .r-tag{color:var(--ink-soft);font-size:14.5px;line-height:1.5}
-.row .r-end{display:flex;align-items:center;gap:14px;justify-self:end}
-.r-tech{font-family:var(--mono);font-size:10.5px;letter-spacing:.06em;color:var(--ink-faint);white-space:nowrap}
+.row .r-end{display:flex;align-items:center;gap:14px;justify-self:end;max-width:260px}
+.r-tech{font-family:var(--mono);font-size:10.5px;letter-spacing:.06em;color:var(--ink-faint);white-space:normal;text-align:right;line-height:1.45;overflow-wrap:anywhere}
 .r-arrow{width:34px;height:34px;border-radius:50%;border:1px solid var(--line);display:grid;place-items:center;flex:none;transition:all .4s var(--ease)}
 .r-arrow svg{width:13px;height:13px;transition:transform .4s var(--ease)}
 .row a:hover .r-arrow{background:var(--coral);border-color:var(--coral);color:#fff}
